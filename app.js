@@ -4,6 +4,7 @@ window.addEventListener("load", () => {
   let tzone = document.querySelector(".timezone");
   let weekTemp = document.querySelectorAll(".week-temp h3");
   let weekSky = document.querySelectorAll(".week-sky h3");
+  // let hourlyTemp = document.querySelectorAll(".hourly");
   let long;
   let lat;
 
@@ -21,6 +22,7 @@ window.addEventListener("load", () => {
 
       fetch(api)
         .then((response) => {
+          console.log(api);
           console.log(response.json);
           return response.json();
         })
@@ -44,6 +46,11 @@ window.addEventListener("load", () => {
             let daily = data.daily[i].weather[0].description;
             daySky.push(daily);
           }
+
+          let hourlyTemp = data.hourly;
+          console.log(hourlyTemp)
+
+          
 
           console.log(dayTemp);
           console.log(temperature);
